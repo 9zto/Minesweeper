@@ -49,157 +49,13 @@ public class MinesweeperBoard2{
     }
 
     public void addNums(){
-        int index = 0;
-        for(int i = 0; i < columns; i++){
-            for(int k = 0; k < rows; k++){
-                if(board[index].getValue() != -1){
-                    //TOP LEFT
-                    if(index == 0){
-                        if(board[index + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }
-                    //TOP RIGHT
-                    else if(index == (rows - 1)){
-                        if(board[index - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }
-                    //BOTTOM LEFT
-                    else if(index == ((columns - 1) * rows)){
-                        if(board[index + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }
-                    //BOTTOM RIGHT
-                    else if(index == (columns * (rows - 1))){
-                        if(board[index - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }
-                    //TOP ROW
-                    else if(index < rows){
-                        if(board[index - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }
-                    //BOTTOM ROW
-                    else if(i == (columns - 1)){
-                        if(board[index - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }
-                    //LEFT COLUMN
-                    else if(index < columns){
-                        if(board[index + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }
-                    //RIGHT COLUMN
-                    else if(index == ((i + 1)* rows) - 1){
-                        if(board[index - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }else{
-                        if(board[index + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows + 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index + rows - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                        if(board[index - rows - 1].isBomb()){
-                            board[index].addValue();
-                        }
-                    }
-                }
-                index++;
+        int i = 0;
+        for(i = 0; i < (columns * rows); i++){
+            if(board[i].isBomb()){
+                //Left
+                
+                //Right
+                
             }
         }
     }
@@ -247,4 +103,34 @@ public class MinesweeperBoard2{
  * STEP 4: Create the "addNums" method
  * STEP 5: Make it look pretty
  * 
+ * 
+ *      //TOP LEFT
+                if((i % columns == 0) && (i % rows == 0)){
+                    board[i].addValue();
+                }
+                //TOP CENTER
+                if(i % rows == 0 ){
+                }
+                //TOP RIGHT
+                if((i % columns == (columns - 1) && (i % rows == 0))){
+                }
+                //CENTER LEFT
+                if((i % columns == 0)){
+                }
+                //CENTER RIGHT
+                if((i % columns == (columns - 1))){
+                }
+                //BOTTOM LEFT
+                if((i % columns == 0) && (i % rows == (rows - 1))){
+                }
+                //BOTTOM CENTER
+                if((i % rows == (rows - 1)) ){
+                }
+                //BOTTOM RIGHT
+                if((i % columns == (columns - 1)) && (i % rows == (rows - 1))){
+                }
+                //BOTTOM CENTER
+                if((i % rows == (rows - 1)) ){
+                }
+                
  */
