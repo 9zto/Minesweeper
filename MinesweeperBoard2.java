@@ -52,9 +52,23 @@ public class MinesweeperBoard2{
         int i = 0;
         for(i = 0; i < (columns * rows); i++){
             if(board[i].isBomb()){
-                //Left
-                
-                //Right
+                //Top
+                if((i >= columns) && (i % columns != 0)){
+                    board[i - columns - 1].addValue();
+                }
+                if(i >= columns){
+                    board[i - columns].addValue();
+                }
+                if(i >= columns && (i % columns != columns - 1)){
+                    board[i - columns + 1].addValue();
+                }
+                //Sides
+                if(i % columns != 0){
+                    board[i - 1].addValue();
+                }
+                if(i % columns != columns - 1){
+                    board[i + 1].addValue();
+                }
                 
             }
         }
