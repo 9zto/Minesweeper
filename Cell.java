@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 
 public class Cell implements ActionListener{
     //Variables you need to work with
-    int value;
+    private int value;
     
     //Variables you don't need to worry about or care about.
     private JButton button;

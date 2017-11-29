@@ -34,7 +34,7 @@ public class MinesweeperBoard2{
     }
 
     public MinesweeperBoard2(){
-        this(20,20, 80);
+        this(10,10, 20);
     }
 
     public void addBombs(int bombs) {//throws Exception{
@@ -70,13 +70,13 @@ public class MinesweeperBoard2{
                     board[i + 1].addValue();
                 }
                 //Bottom
-                if(i <= ((rows - 1)*columns) && i % columns != 0){
+                if(i < ((rows - 1)*columns) && i % columns != 0){
                     board[i + columns - 1].addValue();
                 }
-                if(i <= ((rows - 1)*columns)){
+                if(i < ((rows - 1)*columns)){
                     board[i + columns].addValue();
                 }
-                if(i <= (rows - 1)*columns && i % columns != (columns - 1)){
+                if(i < (rows - 1)*columns && i % columns != (columns - 1)){
                     board[i + columns + 1].addValue();
                 }
             }
@@ -91,9 +91,9 @@ public class MinesweeperBoard2{
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < columns; c++){
                 if(board[val].isBomb()){
-                    System.out.print("x");
+                    System.out.print("X" + " ");
                 }else{ 
-                    System.out.print(board[val].value + " ");
+                    System.out.print(board[val].getValue() + " ");
                 }
                 val++;
             }
