@@ -34,7 +34,7 @@ public class MinesweeperBoard2{
     }
 
     public MinesweeperBoard2(){
-        this(10,10, 25);
+        this(20,20, 80);
     }
 
     public void addBombs(int bombs) {//throws Exception{
@@ -69,7 +69,16 @@ public class MinesweeperBoard2{
                 if(i % columns != columns - 1){
                     board[i + 1].addValue();
                 }
-                
+                //Bottom
+                if(i <= ((rows - 1)*columns) && i % columns != 0){
+                    board[i + columns - 1].addValue();
+                }
+                if(i <= ((rows - 1)*columns)){
+                    board[i + columns].addValue();
+                }
+                if(i <= (rows - 1)*columns && i % columns != (columns - 1)){
+                    board[i + columns + 1].addValue();
+                }
             }
         }
     }
@@ -79,9 +88,13 @@ public class MinesweeperBoard2{
      */
     public void printBoard(){
         int val = 0;
-        for(int c = 0; c < columns; c++){
-            for(int r = 0; r < rows; r++){
-                System.out.print(board[val].value + " ");
+        for(int r = 0; r < rows; r++){
+            for(int c = 0; c < columns; c++){
+                if(board[val].isBomb()){
+                    System.out.print("x");
+                }else{ 
+                    System.out.print(board[val].value + " ");
+                }
                 val++;
             }
             System.out.println();
@@ -119,32 +132,32 @@ public class MinesweeperBoard2{
  * 
  * 
  *      //TOP LEFT
-                if((i % columns == 0) && (i % rows == 0)){
-                    board[i].addValue();
-                }
-                //TOP CENTER
-                if(i % rows == 0 ){
-                }
-                //TOP RIGHT
-                if((i % columns == (columns - 1) && (i % rows == 0))){
-                }
-                //CENTER LEFT
-                if((i % columns == 0)){
-                }
-                //CENTER RIGHT
-                if((i % columns == (columns - 1))){
-                }
-                //BOTTOM LEFT
-                if((i % columns == 0) && (i % rows == (rows - 1))){
-                }
-                //BOTTOM CENTER
-                if((i % rows == (rows - 1)) ){
-                }
-                //BOTTOM RIGHT
-                if((i % columns == (columns - 1)) && (i % rows == (rows - 1))){
-                }
-                //BOTTOM CENTER
-                if((i % rows == (rows - 1)) ){
-                }
-                
+if((i % columns == 0) && (i % rows == 0)){
+board[i].addValue();
+}
+//TOP CENTER
+if(i % rows == 0 ){
+}
+//TOP RIGHT
+if((i % columns == (columns - 1) && (i % rows == 0))){
+}
+//CENTER LEFT
+if((i % columns == 0)){
+}
+//CENTER RIGHT
+if((i % columns == (columns - 1))){
+}
+//BOTTOM LEFT
+if((i % columns == 0) && (i % rows == (rows - 1))){
+}
+//BOTTOM CENTER
+if((i % rows == (rows - 1)) ){
+}
+//BOTTOM RIGHT
+if((i % columns == (columns - 1)) && (i % rows == (rows - 1))){
+}
+//BOTTOM CENTER
+if((i % rows == (rows - 1)) ){
+}
+
  */
