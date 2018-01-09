@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class MinesweeperBoard2{
-    Cell[] board;
+    Cell[][] board;
     int rows;
     int columns;
     public MinesweeperBoard2(int row, int column, int bombs){
@@ -19,7 +19,7 @@ public class MinesweeperBoard2{
         this.rows = row;
         this.columns = column;
 
-        board = new Cell[rows * columns];
+        board = new Cell[rows][columns];
 
         //These pieces are for the GUI.
         JFrame frame = new JFrame();
@@ -37,7 +37,7 @@ public class MinesweeperBoard2{
         this(10,10, 20);
     }
 
-    public void addBombs(int bombs) {//throws Exception{
+    public void addBombs(int bombs) {//throws Exception
         for(int i = 0; i < bombs; i++){
             int index = (int)((Math.random()) * (rows * columns) - 1);
             if(board[index].isBomb()){
